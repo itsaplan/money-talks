@@ -4,252 +4,254 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Money Talks — Your round is ready</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --plum: #534AB7;
-    --plum-light: #7F77DD;
-    --plum-bg: #EEEDFE;
-    --plum-wash: #F8F7FF;
-    --ink: #1a1a1a;
-    --ink-2: #555;
-    --ink-3: #888;
-    --sand: #FAFAF7;
-    --card: #FFFFFF;
-    --border: #EBEBEB;
-    --green: #2E7D32;
-    --green-bg: #E8F5E9;
-  }
-
   body {
-    font-family: 'Outfit', -apple-system, sans-serif;
-    background: var(--sand);
-    color: var(--ink);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: #E8E0F8;
+    color: #1a1a1a;
     min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 24px 16px;
+    padding: 48px 16px 64px;
     -webkit-font-smoothing: antialiased;
   }
 
   .container {
-    max-width: 440px;
+    max-width: 460px;
     width: 100%;
-    animation: rise 0.6s ease-out;
+    animation: rise 0.5s ease-out;
   }
 
   @keyframes rise {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Success header */
-  .success-mark {
-    width: 56px;
-    height: 56px;
+  /* Success check */
+  .check-circle {
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: var(--green-bg);
+    background: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
-    animation: pop 0.5s ease-out 0.3s both;
+    margin: 0 auto 24px;
+    animation: pop 0.4s ease-out 0.2s both;
   }
   @keyframes pop {
     from { opacity: 0; transform: scale(0.5); }
-    50% { transform: scale(1.15); }
+    60% { transform: scale(1.1); }
     to { opacity: 1; transform: scale(1); }
   }
-  .success-mark svg { width: 28px; height: 28px; color: var(--green); }
+  .check-circle svg { width: 32px; height: 32px; }
 
+  /* Header */
   .header {
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
   .header h1 {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 6px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.2;
   }
   .header p {
-    font-size: 14px;
-    color: var(--ink-2);
+    font-size: 15px;
+    color: #555;
     line-height: 1.5;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
   }
 
   /* Trip card */
   .trip-card {
-    background: linear-gradient(135deg, var(--plum-wash), var(--plum-bg));
-    border-radius: 16px;
-    padding: 22px 24px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .trip-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-  .trip-details {
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 16px;
-    flex-wrap: wrap;
+    padding: 20px 24px;
   }
-  .trip-detail {
-    font-size: 13px;
-    color: var(--ink-2);
+  .trip-emoji {
+    font-size: 40px;
+    flex-shrink: 0;
   }
-  .trip-detail strong {
-    color: var(--ink);
+  .trip-info { flex: 1; }
+  .trip-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+  }
+  .trip-details-divider {
+    height: 1px;
+    background: #EBEBEB;
+    margin-bottom: 12px;
+  }
+  .trip-meta {
+    display: flex;
+    gap: 32px;
+  }
+  .trip-meta-item {}
+  .trip-meta-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+  .trip-meta-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
   }
 
-  /* Sections */
-  .section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    margin-bottom: 14px;
-  }
+  /* Section label */
   .section-label {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-3);
-    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+    color: #1a1a1a;
+    margin-bottom: 12px;
   }
 
   /* Link box */
-  .link-box {
-    background: var(--sand);
-    border-radius: 10px;
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 14px 16px;
-    font-size: 13px;
-    word-break: break-all;
-    color: var(--plum);
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    max-height: 80px;
-    overflow-y: auto;
   }
-
+  .link-text {
+    flex: 1;
+    font-size: 13px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #F5F5F5;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
   .copy-btn {
-    width: 100%;
-    padding: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
     border: none;
     border-radius: 10px;
-    background: var(--plum);
+    background: #4CAF50;
     color: white;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    transition: all 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
-  .copy-btn:hover { background: #443BA0; }
-  .copy-btn:active { transform: scale(0.98); }
-  .copy-btn.copied {
-    background: var(--green);
-  }
-  .copy-btn svg { width: 18px; height: 18px; }
+  .copy-btn:hover { background: #43A047; }
+  .copy-btn:active { transform: scale(0.97); }
+  .copy-btn.copied { background: #2E7D32; }
+  .copy-btn svg { width: 16px; height: 16px; }
 
   /* WhatsApp message */
+  .wa-card { padding: 0; overflow: hidden; }
   .wa-message {
-    background: var(--sand);
-    border-radius: 10px;
-    padding: 16px;
-    font-size: 13px;
-    color: var(--ink-2);
+    background: #F0F4E4;
+    margin: 16px;
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 14px;
+    color: #333;
     line-height: 1.65;
     white-space: pre-wrap;
-    margin-bottom: 12px;
-    max-height: 160px;
-    overflow-y: auto;
   }
-  .wa-message .link-in-msg {
-    color: var(--plum);
-    font-weight: 500;
+  .wa-message .wa-link {
+    color: #1976D2;
     word-break: break-all;
+    text-decoration: underline;
   }
-
-  .wa-btn {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: #25D366;
-    color: white;
-    font-family: 'Outfit', sans-serif;
-    font-size: 14px;
+  .wa-message .wa-bold {
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+  }
+  .wa-copy-wrap {
+    padding: 0 16px 16px;
+  }
+  .wa-copy-btn {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-  }
-  .wa-btn:hover { background: #1EBE57; }
-  .wa-btn:active { transform: scale(0.98); }
-  .wa-btn.copied { background: var(--green); }
-  .wa-btn svg { width: 18px; height: 18px; }
-
-  /* Footer note */
-  .footer-note {
-    background: var(--green-bg);
+    padding: 14px;
+    border: none;
     border-radius: 12px;
-    padding: 16px;
-    font-size: 13px;
-    color: var(--green);
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  .footer-note strong { font-weight: 600; }
-
-  .branding {
-    text-align: center;
-    font-size: 12px;
-    color: var(--ink-3);
-    padding-top: 8px;
-  }
-  .branding span { color: var(--plum-light); font-weight: 600; }
-
-  /* Error state */
-  .error-state {
-    text-align: center;
-    padding: 48px 24px;
-  }
-  .error-state h2 {
-    font-size: 20px;
+    background: #7CB342;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
     font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .wa-copy-btn:hover { background: #689F38; }
+  .wa-copy-btn:active { transform: scale(0.98); }
+  .wa-copy-btn.copied { background: #2E7D32; }
+  .wa-copy-btn svg { width: 18px; height: 18px; }
+
+  /* What happens next */
+  .next-card {
+    background: #F3F0F0;
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .next-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a1a;
     margin-bottom: 8px;
   }
-  .error-state p {
+  .next-body {
     font-size: 14px;
-    color: var(--ink-2);
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Error */
+  .error-state {
+    text-align: center;
+    padding: 64px 24px;
+    background: #FFFFFF;
+    border-radius: 16px;
+  }
+  .error-state h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+  .error-state p { font-size: 14px; color: #555; }
+
+  /* Mobile tweaks */
+  @media (max-width: 480px) {
+    body { padding: 32px 12px 48px; }
+    .header h1 { font-size: 26px; }
+    .trip-meta { gap: 20px; }
+    .link-card { flex-direction: column; align-items: stretch; }
+    .copy-btn { justify-content: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="container" id="app">
-  <!-- Filled by JavaScript -->
-</div>
+<div class="container" id="app"></div>
 
 <script>
-  // Read URL parameters
   var params = new URLSearchParams(window.location.search);
   var roundCode = params.get('round_code') || '';
   var tripName = params.get('trip_name') || '';
@@ -259,13 +261,23 @@
 
   var app = document.getElementById('app');
 
+  // Pick emoji based on occasion
+  var emojiMap = {
+    'Bachelorette / Bachelor party': '\u{1F378}',
+    'Trip with friends': '\u{2708}\u{FE0F}',
+    'Birthday celebration': '\u{1F382}',
+    'Holiday with family': '\u{1F334}',
+    'Group dinner / night out': '\u{1F37D}\u{FE0F}',
+    'Shared rental / Airbnb': '\u{1F3E0}',
+  };
+  var emoji = emojiMap[occasion] || '\u{1F4B0}';
+
   if (!roundCode || !tripName) {
     app.innerHTML = '<div class="error-state">'
       + '<h2>Something went wrong</h2>'
       + '<p>We couldn\'t find your round details. Please go back and submit the form again.</p>'
       + '</div>';
   } else {
-    // Build the member link
     var memberLink = 'https://tally.so/r/Y5Ye4N'
       + '?round_code=' + encodeURIComponent(roundCode)
       + '&trip_name=' + encodeURIComponent(tripName)
@@ -273,76 +285,88 @@
       + '&budget_covers=' + encodeURIComponent(budgetCovers)
       + '&deadline=' + encodeURIComponent(deadline);
 
-    // Build the WhatsApp message
-    var waMessage = 'Hey! 👋 I\'m starting to plan ' + tripName + ' and want to make sure the budget works for everyone.\n\nI\'m using a quick tool where everyone shares their budget privately — no one sees each other\'s numbers, not even me. I just get the group range so I can plan something that works for all of us.\n\nTakes 30 seconds: ' + memberLink + '\n\nThanks! 🙏';
-
-    // Build details
-    var detailsHtml = '';
-    if (occasion) detailsHtml += '<span class="trip-detail">' + occasion + '</span>';
-    if (budgetCovers) detailsHtml += '<span class="trip-detail"><strong>' + budgetCovers + '</strong></span>';
-    if (deadline) detailsHtml += '<span class="trip-detail">by ' + deadline + '</span>';
+    var waPlain = 'Hey! \u{1F44B} I\'m starting to plan ' + tripName + ' and want to make sure the budget works for everyone.\n\nShare your budget privately before ' + (deadline || 'the deadline') + ' \u2014 no one sees each other\'s numbers, not even me. I just get the group range so I can plan something that works for all of us.\n\nTakes 30 seconds: ' + memberLink + '\n\nThanks! \u{1F64F}';
 
     app.innerHTML = ''
-      + '<div class="success-mark"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>'
+      // Check circle
+      + '<div class="check-circle">'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>'
+      + '</div>'
 
+      // Header
       + '<div class="header">'
       + '<h1>Your round is ready!</h1>'
-      + '<p>Share the link with your group so everyone can submit their budget privately.</p>'
+      + '<p>Share the link or message with your group so everyone can submit their budget privately.</p>'
       + '</div>'
 
-      + '<div class="trip-card">'
+      // Trip card
+      + '<div class="card trip-card">'
+      + '<div class="trip-emoji">' + emoji + '</div>'
+      + '<div class="trip-info">'
       + '<div class="trip-name">' + tripName + '</div>'
-      + '<div class="trip-details">' + detailsHtml + '</div>'
+      + '<div class="trip-details-divider"></div>'
+      + '<div class="trip-meta">'
+      + (budgetCovers ? '<div class="trip-meta-item"><div class="trip-meta-label">Budget covers</div><div class="trip-meta-value">' + budgetCovers + '</div></div>' : '')
+      + (deadline ? '<div class="trip-meta-item"><div class="trip-meta-label">Responses by</div><div class="trip-meta-value">' + deadline + '</div></div>' : '')
+      + '</div>'
+      + '</div>'
       + '</div>'
 
-      + '<div class="section">'
+      // Sharing link
       + '<div class="section-label">Sharing link</div>'
-      + '<div class="link-box" id="linkBox">' + memberLink + '</div>'
+      + '<div class="card link-card">'
+      + '<div class="link-text" id="linkDisplay">' + memberLink + '</div>'
       + '<button class="copy-btn" id="copyLinkBtn" onclick="copyLink()">'
-      + '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>'
-      + 'Copy link'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>'
+      + 'Copy'
       + '</button>'
       + '</div>'
 
-      + '<div class="section">'
+      // WhatsApp message
       + '<div class="section-label">Ready-to-send message</div>'
-      + '<div class="wa-message" id="waMessage">' + waMessage.replace(memberLink, '<span class="link-in-msg">' + memberLink + '</span>') + '</div>'
-      + '<button class="wa-btn" id="copyMsgBtn" onclick="copyMessage()">'
-      + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.29-1.234L5 19.5l.734-2.71A8 8 0 1112 20z"/></svg>'
+      + '<div class="card wa-card">'
+      + '<div class="wa-message">'
+      + 'Hey! \u{1F44B} I\'m starting to plan <span class="wa-bold">' + tripName + '</span> and want to make sure the budget works for everyone.\n\n'
+      + 'Share your budget privately before <span class="wa-bold">' + (deadline || 'the deadline') + '</span> \u2014 no one sees each other\'s numbers, not even me. I just get the group range so I can plan something that works for all of us.\n\n'
+      + 'Takes 30 seconds: <span class="wa-link">' + memberLink + '</span>\n\n'
+      + 'Thanks! \u{1F64F}'
+      + '</div>'
+      + '<div class="wa-copy-wrap">'
+      + '<button class="wa-copy-btn" id="copyMsgBtn" onclick="copyMessage()">'
+      + '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.516 3.516c4.686-4.686 12.284-4.686 16.97 0 4.686 4.686 4.686 12.283 0 16.97a12.004 12.004 0 01-13.754 2.299l-5.814.735a.392.392 0 01-.438-.44l.748-5.788A12.002 12.002 0 013.517 3.516zm3.61 17.043l.3.158a9.846 9.846 0 0011.534-1.758c3.843-3.843 3.843-10.074 0-13.918-3.843-3.843-10.075-3.843-13.918 0a9.846 9.846 0 00-1.747 11.554l.16.303-.51 3.942a.196.196 0 00.219.22l3.961-.501zm6.534-7.003l2.22 1.072c.205.099.39.199.574.343.301.234.525.578.606.978.094.46-.038.946-.263 1.355-.225.41-.54.783-.883 1.107a4.56 4.56 0 01-1.595.922 4.893 4.893 0 01-3.279-.09 11.046 11.046 0 01-3.131-1.78 13.157 13.157 0 01-2.481-2.655c-.648-.898-1.16-1.93-1.294-3.025A3.4 3.4 0 014.82 9.52a3.652 3.652 0 011.142-1.622c.43-.35.96-.566 1.523-.58.455-.01.836.12 1.148.399.29.26.519.6.72.978l.89 1.677a2.1 2.1 0 01.238.766c.021.318-.098.584-.248.816l-.442.66c-.14.214-.18.485-.063.728.23.474.67.984 1.193 1.457.547.493 1.13.9 1.737 1.156.236.1.483.06.68-.084l.523-.424c.222-.18.471-.299.759-.319.26-.019.516.069.74.178z"/></svg>'
       + 'Copy message'
       + '</button>'
       + '</div>'
-
-      + '<div class="footer-note">'
-      + '<strong>What happens next?</strong> Once everyone responds (or the deadline passes), you\'ll receive the results by email automatically. Nothing to check — we\'ll come to you.'
       + '</div>'
 
-      + '<div class="branding">Created with <span>Money Talks</span></div>';
+      // What happens next
+      + '<div class="next-card">'
+      + '<div class="next-title">What happens next?</div>'
+      + '<div class="next-body">Once everyone responds or the deadline passes, you\'ll automatically receive the results by email.</div>'
+      + '</div>';
   }
 
   function copyLink() {
-    var link = document.getElementById('linkBox').textContent;
-    navigator.clipboard.writeText(link).then(function() {
+    navigator.clipboard.writeText(memberLink).then(function() {
       var btn = document.getElementById('copyLinkBtn');
-      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Copied!';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Copied!';
       btn.classList.add('copied');
       setTimeout(function() {
-        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy link';
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
         btn.classList.remove('copied');
-      }, 2000);
+      }, 2500);
     });
   }
 
   function copyMessage() {
-    var waText = 'Hey! 👋 I\'m starting to plan ' + tripName + ' and want to make sure the budget works for everyone.\n\nI\'m using a quick tool where everyone shares their budget privately — no one sees each other\'s numbers, not even me. I just get the group range so I can plan something that works for all of us.\n\nTakes 30 seconds: ' + document.getElementById('linkBox').textContent + '\n\nThanks! 🙏';
-    navigator.clipboard.writeText(waText).then(function() {
+    navigator.clipboard.writeText(waPlain).then(function() {
       var btn = document.getElementById('copyMsgBtn');
-      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Copied!';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Copied!';
       btn.classList.add('copied');
       setTimeout(function() {
-        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.29-1.234L5 19.5l.734-2.71A8 8 0 1112 20z"/></svg> Copy message';
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.516 3.516c4.686-4.686 12.284-4.686 16.97 0 4.686 4.686 4.686 12.283 0 16.97a12.004 12.004 0 01-13.754 2.299l-5.814.735a.392.392 0 01-.438-.44l.748-5.788A12.002 12.002 0 013.517 3.516zm3.61 17.043l.3.158a9.846 9.846 0 0011.534-1.758c3.843-3.843 3.843-10.074 0-13.918-3.843-3.843-10.075-3.843-13.918 0a9.846 9.846 0 00-1.747 11.554l.16.303-.51 3.942a.196.196 0 00.219.22l3.961-.501zm6.534-7.003l2.22 1.072c.205.099.39.199.574.343.301.234.525.578.606.978.094.46-.038.946-.263 1.355-.225.41-.54.783-.883 1.107a4.56 4.56 0 01-1.595.922 4.893 4.893 0 01-3.279-.09 11.046 11.046 0 01-3.131-1.78 13.157 13.157 0 01-2.481-2.655c-.648-.898-1.16-1.93-1.294-3.025A3.4 3.4 0 014.82 9.52a3.652 3.652 0 011.142-1.622c.43-.35.96-.566 1.523-.58.455-.01.836.12 1.148.399.29.26.519.6.72.978l.89 1.677a2.1 2.1 0 01.238.766c.021.318-.098.584-.248.816l-.442.66c-.14.214-.18.485-.063.728.23.474.67.984 1.193 1.457.547.493 1.13.9 1.737 1.156.236.1.483.06.68-.084l.523-.424c.222-.18.471-.299.759-.319.26-.019.516.069.74.178z"/></svg> Copy message';
         btn.classList.remove('copied');
-      }, 2000);
+      }, 2500);
     });
   }
 </script>
