@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Money Talks — Your round is ready</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -19,6 +20,11 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  .material-symbols-rounded {
+    font-size: 20px;
+    vertical-align: middle;
+  }
+
   .container {
     max-width: 460px;
     width: 100%;
@@ -30,7 +36,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Success check */
   .check-circle {
     width: 64px;
     height: 64px;
@@ -49,7 +54,6 @@
   }
   .check-circle svg { width: 32px; height: 32px; }
 
-  /* Header */
   .header {
     text-align: center;
     margin-bottom: 32px;
@@ -67,23 +71,36 @@
     line-height: 1.5;
   }
 
-  /* Cards */
+  /* Cards — 10px corners, 2px black stroke */
   .card {
     background: #FFFFFF;
-    border-radius: 16px;
+    border-radius: 10px;
+    border: 2px solid #1a1a1a;
     padding: 24px;
     margin-bottom: 24px;
   }
 
   /* Trip card */
   .trip-card {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .trip-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+  }
+  .emoji-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: #FFDFAD;
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 20px 24px;
-  }
-  .trip-emoji {
-    font-size: 40px;
+    justify-content: center;
+    font-size: 28px;
     flex-shrink: 0;
   }
   .trip-info { flex: 1; }
@@ -91,18 +108,17 @@
     font-size: 20px;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
   .trip-details-divider {
     height: 1px;
     background: #EBEBEB;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
   .trip-meta {
     display: flex;
     gap: 32px;
   }
-  .trip-meta-item {}
   .trip-meta-label {
     font-size: 12px;
     color: #888;
@@ -114,7 +130,7 @@
     color: #1a1a1a;
   }
 
-  /* Section label */
+  /* Section labels */
   .section-label {
     font-size: 13px;
     font-weight: 700;
@@ -124,7 +140,7 @@
     margin-bottom: 12px;
   }
 
-  /* Link box */
+  /* Link card */
   .link-card {
     display: flex;
     align-items: center;
@@ -138,9 +154,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background: #F5F5F5;
+    background: #F1F1E7;
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: 8px;
   }
   .copy-btn {
     display: flex;
@@ -149,7 +165,7 @@
     padding: 10px 18px;
     border: none;
     border-radius: 10px;
-    background: #4CAF50;
+    background: #5DAF0B;
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
@@ -159,17 +175,16 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .copy-btn:hover { background: #43A047; }
+  .copy-btn:hover { background: #4E9A09; }
   .copy-btn:active { transform: scale(0.97); }
-  .copy-btn.copied { background: #2E7D32; }
-  .copy-btn svg { width: 16px; height: 16px; }
+  .copy-btn.copied { background: #3B7A06; }
 
-  /* WhatsApp message */
+  /* WhatsApp message card */
   .wa-card { padding: 0; overflow: hidden; }
   .wa-message {
-    background: #F0F4E4;
+    background: #F1F1E7;
     margin: 16px;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 18px 20px;
     font-size: 14px;
     color: #333;
@@ -195,8 +210,8 @@
     gap: 8px;
     padding: 14px;
     border: none;
-    border-radius: 12px;
-    background: #7CB342;
+    border-radius: 10px;
+    background: #5DAF0B;
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
@@ -204,20 +219,21 @@
     cursor: pointer;
     transition: all 0.15s;
   }
-  .wa-copy-btn:hover { background: #689F38; }
+  .wa-copy-btn:hover { background: #4E9A09; }
   .wa-copy-btn:active { transform: scale(0.98); }
-  .wa-copy-btn.copied { background: #2E7D32; }
-  .wa-copy-btn svg { width: 18px; height: 18px; }
+  .wa-copy-btn.copied { background: #3B7A06; }
 
   /* What happens next */
   .next-card {
-    background: #F3F0F0;
-    border-radius: 16px;
+    background: #F7F2FF;
+    border-radius: 10px;
     padding: 24px;
   }
   .next-title {
     font-size: 15px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: #1a1a1a;
     margin-bottom: 8px;
   }
@@ -232,12 +248,12 @@
     text-align: center;
     padding: 64px 24px;
     background: #FFFFFF;
-    border-radius: 16px;
+    border-radius: 10px;
+    border: 2px solid #1a1a1a;
   }
   .error-state h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
   .error-state p { font-size: 14px; color: #555; }
 
-  /* Mobile tweaks */
   @media (max-width: 480px) {
     body { padding: 32px 12px 48px; }
     .header h1 { font-size: 26px; }
@@ -257,11 +273,35 @@
   var tripName = params.get('trip_name') || '';
   var occasion = params.get('occasion') || '';
   var budgetCovers = params.get('budget_covers') || '';
-  var deadline = params.get('deadline') || '';
+  var deadlineParam = params.get('deadline') || '';
 
   var app = document.getElementById('app');
 
-  // Pick emoji based on occasion
+  // Format deadline as "Day, Nth of Month"
+  function formatDeadline(raw) {
+    if (!raw) return '';
+    var d = new Date(raw);
+    if (isNaN(d.getTime())) return raw; // fallback to raw string if not parseable
+
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    var dayName = days[d.getDay()];
+    var date = d.getDate();
+    var month = months[d.getMonth()];
+
+    // Ordinal suffix
+    var suffix = 'th';
+    if (date === 1 || date === 21 || date === 31) suffix = 'st';
+    else if (date === 2 || date === 22) suffix = 'nd';
+    else if (date === 3 || date === 23) suffix = 'rd';
+
+    return dayName + ', ' + date + suffix + ' of ' + month;
+  }
+
+  var deadline = formatDeadline(deadlineParam) || deadlineParam;
+
+  // Emoji based on occasion
   var emojiMap = {
     'Bachelorette / Bachelor party': '\u{1F378}',
     'Trip with friends': '\u{2708}\u{FE0F}',
@@ -283,17 +323,15 @@
       + '&trip_name=' + encodeURIComponent(tripName)
       + '&occasion=' + encodeURIComponent(occasion)
       + '&budget_covers=' + encodeURIComponent(budgetCovers)
-      + '&deadline=' + encodeURIComponent(deadline);
+      + '&deadline=' + encodeURIComponent(deadlineParam);
 
     var waPlain = 'Hey! \u{1F44B} I\'m starting to plan ' + tripName + ' and want to make sure the budget works for everyone.\n\nShare your budget privately before ' + (deadline || 'the deadline') + ' \u2014 no one sees each other\'s numbers, not even me. I just get the group range so I can plan something that works for all of us.\n\nTakes 30 seconds: ' + memberLink + '\n\nThanks! \u{1F64F}';
 
     app.innerHTML = ''
-      // Check circle
       + '<div class="check-circle">'
       + '<svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>'
       + '</div>'
 
-      // Header
       + '<div class="header">'
       + '<h1>Your round is ready!</h1>'
       + '<p>Share the link or message with your group so everyone can submit their budget privately.</p>'
@@ -301,7 +339,8 @@
 
       // Trip card
       + '<div class="card trip-card">'
-      + '<div class="trip-emoji">' + emoji + '</div>'
+      + '<div class="trip-card-inner">'
+      + '<div class="emoji-box">' + emoji + '</div>'
       + '<div class="trip-info">'
       + '<div class="trip-name">' + tripName + '</div>'
       + '<div class="trip-details-divider"></div>'
@@ -311,18 +350,19 @@
       + '</div>'
       + '</div>'
       + '</div>'
+      + '</div>'
 
       // Sharing link
       + '<div class="section-label">Sharing link</div>'
       + '<div class="card link-card">'
       + '<div class="link-text" id="linkDisplay">' + memberLink + '</div>'
       + '<button class="copy-btn" id="copyLinkBtn" onclick="copyLink()">'
-      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>'
-      + 'Copy'
+      + '<span class="material-symbols-rounded">content_copy</span>'
+      + 'Copy link'
       + '</button>'
       + '</div>'
 
-      // WhatsApp message
+      // Message
       + '<div class="section-label">Ready-to-send message</div>'
       + '<div class="card wa-card">'
       + '<div class="wa-message">'
@@ -333,7 +373,7 @@
       + '</div>'
       + '<div class="wa-copy-wrap">'
       + '<button class="wa-copy-btn" id="copyMsgBtn" onclick="copyMessage()">'
-      + '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.516 3.516c4.686-4.686 12.284-4.686 16.97 0 4.686 4.686 4.686 12.283 0 16.97a12.004 12.004 0 01-13.754 2.299l-5.814.735a.392.392 0 01-.438-.44l.748-5.788A12.002 12.002 0 013.517 3.516zm3.61 17.043l.3.158a9.846 9.846 0 0011.534-1.758c3.843-3.843 3.843-10.074 0-13.918-3.843-3.843-10.075-3.843-13.918 0a9.846 9.846 0 00-1.747 11.554l.16.303-.51 3.942a.196.196 0 00.219.22l3.961-.501zm6.534-7.003l2.22 1.072c.205.099.39.199.574.343.301.234.525.578.606.978.094.46-.038.946-.263 1.355-.225.41-.54.783-.883 1.107a4.56 4.56 0 01-1.595.922 4.893 4.893 0 01-3.279-.09 11.046 11.046 0 01-3.131-1.78 13.157 13.157 0 01-2.481-2.655c-.648-.898-1.16-1.93-1.294-3.025A3.4 3.4 0 014.82 9.52a3.652 3.652 0 011.142-1.622c.43-.35.96-.566 1.523-.58.455-.01.836.12 1.148.399.29.26.519.6.72.978l.89 1.677a2.1 2.1 0 01.238.766c.021.318-.098.584-.248.816l-.442.66c-.14.214-.18.485-.063.728.23.474.67.984 1.193 1.457.547.493 1.13.9 1.737 1.156.236.1.483.06.68-.084l.523-.424c.222-.18.471-.299.759-.319.26-.019.516.069.74.178z"/></svg>'
+      + '<span class="material-symbols-rounded">send</span>'
       + 'Copy message'
       + '</button>'
       + '</div>'
@@ -341,7 +381,7 @@
 
       // What happens next
       + '<div class="next-card">'
-      + '<div class="next-title">What happens next?</div>'
+      + '<div class="next-title">WHAT HAPPENS NEXT?</div>'
       + '<div class="next-body">Once everyone responds or the deadline passes, you\'ll automatically receive the results by email.</div>'
       + '</div>';
   }
@@ -349,10 +389,10 @@
   function copyLink() {
     navigator.clipboard.writeText(memberLink).then(function() {
       var btn = document.getElementById('copyLinkBtn');
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Copied!';
+      btn.innerHTML = '<span class="material-symbols-rounded">check</span> Copied!';
       btn.classList.add('copied');
       setTimeout(function() {
-        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+        btn.innerHTML = '<span class="material-symbols-rounded">content_copy</span> Copy link';
         btn.classList.remove('copied');
       }, 2500);
     });
@@ -361,10 +401,10 @@
   function copyMessage() {
     navigator.clipboard.writeText(waPlain).then(function() {
       var btn = document.getElementById('copyMsgBtn');
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Copied!';
+      btn.innerHTML = '<span class="material-symbols-rounded">check</span> Copied!';
       btn.classList.add('copied');
       setTimeout(function() {
-        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.516 3.516c4.686-4.686 12.284-4.686 16.97 0 4.686 4.686 4.686 12.283 0 16.97a12.004 12.004 0 01-13.754 2.299l-5.814.735a.392.392 0 01-.438-.44l.748-5.788A12.002 12.002 0 013.517 3.516zm3.61 17.043l.3.158a9.846 9.846 0 0011.534-1.758c3.843-3.843 3.843-10.074 0-13.918-3.843-3.843-10.075-3.843-13.918 0a9.846 9.846 0 00-1.747 11.554l.16.303-.51 3.942a.196.196 0 00.219.22l3.961-.501zm6.534-7.003l2.22 1.072c.205.099.39.199.574.343.301.234.525.578.606.978.094.46-.038.946-.263 1.355-.225.41-.54.783-.883 1.107a4.56 4.56 0 01-1.595.922 4.893 4.893 0 01-3.279-.09 11.046 11.046 0 01-3.131-1.78 13.157 13.157 0 01-2.481-2.655c-.648-.898-1.16-1.93-1.294-3.025A3.4 3.4 0 014.82 9.52a3.652 3.652 0 011.142-1.622c.43-.35.96-.566 1.523-.58.455-.01.836.12 1.148.399.29.26.519.6.72.978l.89 1.677a2.1 2.1 0 01.238.766c.021.318-.098.584-.248.816l-.442.66c-.14.214-.18.485-.063.728.23.474.67.984 1.193 1.457.547.493 1.13.9 1.737 1.156.236.1.483.06.68-.084l.523-.424c.222-.18.471-.299.759-.319.26-.019.516.069.74.178z"/></svg> Copy message';
+        btn.innerHTML = '<span class="material-symbols-rounded">send</span> Copy message';
         btn.classList.remove('copied');
       }, 2500);
     });
