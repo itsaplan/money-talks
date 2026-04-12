@@ -302,16 +302,18 @@
   var deadline = formatDeadline(deadlineParam) || deadlineParam;
 
   // Emoji based on occasion
-  var emojiMap = {
-    'Bachelorette': '\u{1F378}',
-    'Trip with friends': '\u{2708}\u{FE0F}',
-    'Birthday celebration': '\u{1F382}',
-    'Holiday with family': '\u{1F334}',
-    'Group dinner / night out': '\u{1F37D}\u{FE0F}',
-    'Shared rental / Airbnb': '\u{1F3E0}',
-    'Other': '\u{1F4B0}',
-  };
-  var emoji = emojiMap[occasion] || '\u{1F4B0}';
+  // Match occasion by keyword (Tally redirect may truncate the value)
+  function getEmoji(occ) {
+    var o = (occ || '').toLowerCase();
+    if (o.indexOf('bach') > -1) return '\u{1F378}';
+    if (o.indexOf('trip') > -1) return '\u{2708}\u{FE0F}';
+    if (o.indexOf('birthday') > -1) return '\u{1F382}';
+    if (o.indexOf('holiday') > -1 || o.indexOf('family') > -1) return '\u{1F334}';
+    if (o.indexOf('dinner') > -1 || o.indexOf('night') > -1) return '\u{1F37D}\u{FE0F}';
+    if (o.indexOf('rental') > -1 || o.indexOf('airbnb') > -1) return '\u{1F3E0}';
+    return '\u{1F4B0}';
+  }
+  var emoji = getEmoji(occasion);
 
   if (!roundCode || !tripName) {
     app.innerHTML = '<div class="error-state">'
